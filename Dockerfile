@@ -17,6 +17,7 @@ RUN apk upgrade --update \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo "${TZ}" > /etc/timezone \
     && apk del curl \
+    && mv config/frpc.ini /etc/frp/frpc.ini \
     && rm -rf frp_${FRP_VERSION}_linux_amd64.tar.gz \
         frp_${FRP_VERSION}_linux_amd64 \
         /var/cache/apk/*
